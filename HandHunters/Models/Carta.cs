@@ -1,10 +1,12 @@
-﻿namespace HandHunters.Models
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace HandHunters.Models
 {
     public class Carta
     {
         public int Id { get; set; }
         public string NombreCarta { get; set; }
-        public string Descripcion { get; set; }
+        public string? Descripcion { get; set; }
         public double Costo { get; set; }
 
         // Foreign keys
@@ -20,9 +22,10 @@
         public string Foto { get; set; } 
 
         public int IdFranquicia { get; set; }
-        public Franquicia Franquicia { get; set; } 
+        public Franquicia Franquicia { get; set; }
 
-        public int IdUsuario { get; set; }
-        public Usuario Usuario { get; set; } 
+        // Relación con el usuario de Identity
+        public string IdUser { get; set; }
+        public IdentityUser User { get; set; }
     }
 }
